@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#4F46E5">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="description" content="个人健康管理应用 - 体重管理、饮食记录、营养分析">
+    
+    <title>健康管家</title>
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Icons -->
+    <link rel="apple-touch-icon" href="assets/icons/icon-192.png">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    
+    <!-- TensorFlow.js -->
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.15.0/dist/tf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet@2.1.0/dist/mobilenet.min.js"></script>
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="app">
+        <!-- 页面容器 -->
+        <main id="page-container"></main>
+        
+        <!-- 底部导航 -->
+        <nav id="bottom-nav" class="bottom-nav">
+            <a href="#/dashboard" class="nav-item" data-page="dashboard">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+                <span>首页</span>
+            </a>
+            <a href="#/weight" class="nav-item" data-page="weight">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6L5.6 18.4"></path>
+                </svg>
+                <span>体重</span>
+            </a>
+            <a href="#/diet" class="nav-item" data-page="diet">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+                    <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+                    <line x1="6" y1="1" x2="6" y2="4"></line>
+                    <line x1="10" y1="1" x2="10" y2="4"></line>
+                    <line x1="14" y1="1" x2="14" y2="4"></line>
+                </svg>
+                <span>饮食</span>
+            </a>
+            <a href="#/nutrition" class="nav-item" data-page="nutrition">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <path d="M12 2a10 10 0 0 1 10 10"></path>
+                    <path d="M12 12l4-4"></path>
+                </svg>
+                <span>营养</span>
+            </a>
+            <a href="#/profile" class="nav-item" data-page="profile">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+                <span>我的</span>
+            </a>
+        </nav>
+    </div>
+    
+    <!-- Toast 提示 -->
+    <div id="toast" class="toast"></div>
+    
+    <!-- 模态框容器 -->
+    <div id="modal-container"></div>
+    
+    <!-- 加载指示器 -->
+    <div id="loading" class="loading-overlay hidden">
+        <div class="loading-spinner"></div>
+        <p class="loading-text">加载中...</p>
+    </div>
+    
+    <!-- Scripts -->
+    <script src="js/data/foods.js"></script>
+    <script src="js/db.js"></script>
+    <script src="js/router.js"></script>
+    <script src="js/ai/food-recognizer.js"></script>
+    <script src="js/modules/dashboard.js"></script>
+    <script src="js/modules/weight.js"></script>
+    <script src="js/modules/diet.js"></script>
+    <script src="js/modules/nutrition.js"></script>
+    <script src="js/modules/camera.js"></script>
+    <script src="js/modules/profile.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
